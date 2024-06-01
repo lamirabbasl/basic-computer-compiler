@@ -1,13 +1,38 @@
 const Spec = [
   // whitespace
   [/^\s+/, null],
+
   //comments
   [/^\/\/.*/, null],
+
+  // symbols
+  [/^;/, ";"],
+  [/^\{/, "{"],
+  [/^\}/, "}"],
+  [/^\(/, "("],
+  [/^\)/, ")"],
+  [/^,/, ","],
+
+  //keywords
+  [/^\bint\b/, "int"],
+
   // number
   [/^\d+/, "NUMBER"],
+
   // string
   [/^"[^"]*"/, "STRING"],
   [/^'[^']*'/, "STRING"],
+
+  //operators
+  [/^[+\-]/, "Additive_Operator"],
+  [/^[*\/]/, "Mult_Operator"],
+
+  //identifier
+  [/^\w+/, "IDENTIFIER"],
+
+  //assignment operators
+  [/^=/, "Simple_Assignment"], // =
+  [/^[\*\/\+\-]=/, "Complex_Assignment"],
 ];
 
 export class Tokenizer {
