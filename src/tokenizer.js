@@ -15,24 +15,43 @@ const Spec = [
 
   //keywords
   [/^\bint\b/, "int"],
+  [/^\bif\b/, "if"],
+  [/^\belse\b/, "else"],
+  [/^\btrue\b/, "true"],
+  [/^\bfalse\b/, "false"],
+  [/^\bnull\b/, "null"],
+  [/^\bwhile\b/, "while"],
+  [/^\bdo\b/, "do"],
+  [/^\bfor\b/, "for"],
 
   // number
   [/^\d+/, "NUMBER"],
 
-  // string
-  [/^"[^"]*"/, "STRING"],
-  [/^'[^']*'/, "STRING"],
+  //identifier
+  [/^\w+/, "IDENTIFIER"],
+
+  //equality operator
+  [/^[=!]=/, "Equality_Operator"],
+
+  //assignment operators
+  [/^=/, "Simple_Assignment"], // =
+  [/^[\*\/\+\-]=/, "Complex_Assignment"],
 
   //operators
   [/^[+\-]/, "Additive_Operator"],
   [/^[*\/]/, "Mult_Operator"],
 
-  //identifier
-  [/^\w+/, "IDENTIFIER"],
+  //relational operators
+  [/^[><]=?/, "Relational_Operator"],
 
-  //assignment operators
-  [/^=/, "Simple_Assignment"], // =
-  [/^[\*\/\+\-]=/, "Complex_Assignment"],
+  //logical operator
+  [/^&&/, "Logical_AND"],
+  [/^\|\|/, "Logical_OR"],
+  [/^!/, "Logical_NOT"],
+
+  // string
+  [/^"[^"]*"/, "STRING"],
+  [/^'[^']*'/, "STRING"],
 ];
 
 export class Tokenizer {
